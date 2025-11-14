@@ -1,0 +1,136 @@
+@use "../../styles/abstracts" as *;
+
+.newsCard {
+  padding: 16px 0;
+  border-bottom: 1px solid #e0e0e0;
+  max-width: 100%;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @include desktop {
+    padding: 20px 0;
+  }
+}
+
+.mainContainer {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+
+  &:hover .title {
+    color: $orange-01;
+    text-decoration: underline;
+  }
+
+  @include desktop {
+    gap: 20px;
+  }
+}
+
+.imageContainer {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  min-height: 80px;
+  overflow: hidden;
+  border-radius: 8px;
+
+  @include desktop {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+    min-height: 120px;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.category {
+  font-size: 11px;
+  color: $orange-01;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.5px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: $font-weight-medium;
+  color: $gray-02;
+  margin: 0;
+  line-height: 1.3;
+  transition: all 0.2s ease;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @include desktop {
+    font-size: 18px;
+  }
+}
+
+.timestamp {
+  font-size: 12px;
+  color: $gray-01;
+  margin: 0;
+  margin-top: auto;
+}
+
+.favoriteButton {
+  margin-top: 8px;
+  padding: 4px 10px;
+  background-color: $white;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 11px;
+  color: $gray-02;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+
+  &:hover {
+    background-color: #f8f8f8;
+    border-color: $gray-01;
+  }
+
+  &.favorited {
+    background-color: rgba($orange-01, 0.1);
+    border-color: $orange-01;
+    color: $orange-01;
+
+    &:hover {
+      background-color: rgba($orange-01, 0.2);
+    }
+  }
+
+  @include desktop {
+    padding: 5px 12px;
+    font-size: 12px;
+  }
+}

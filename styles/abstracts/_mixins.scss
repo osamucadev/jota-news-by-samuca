@@ -1,0 +1,15 @@
+@use "variables" as *;
+
+// Media query para desktop (acima de 1200px)
+@mixin desktop {
+  @media (min-width: #{$breakpoint-mobile + 1px}) {
+    @content;
+  }
+}
+
+// Media query para mobile (até 1200px) - só use se precisar sobrescrever algo
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}

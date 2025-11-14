@@ -1,0 +1,118 @@
+@use "../../styles/abstracts" as *;
+@use "sass:color";
+
+.header {
+  background-color: $white;
+  border-bottom: 2px solid #e0e0e0;
+  padding: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+  @include desktop {
+    padding: 20px 24px;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  @include desktop {
+    flex-wrap: nowrap;
+  }
+}
+
+.logo {
+  text-decoration: none;
+  color: $gray-02;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $orange-01;
+  }
+}
+
+.title {
+  font-size: 18px;
+  font-weight: $font-weight-bold;
+  margin: 0;
+
+  @include desktop {
+    font-size: 22px;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  @include desktop {
+    gap: 24px;
+  }
+}
+
+.link {
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  color: $gray-02;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+
+  &:hover {
+    color: $orange-01;
+  }
+
+  &.active {
+    color: $orange-01;
+    font-weight: $font-weight-bold;
+  }
+
+  @include desktop {
+    font-size: 15px;
+  }
+}
+
+.button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: $font-weight-medium;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+
+  @include desktop {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+.btnLogin {
+  background-color: $orange-01;
+  color: $white;
+  border: 2px solid $orange-01;
+
+  &:hover {
+    background-color: color.scale($orange-01, $lightness: -10%);
+    border-color: color.scale($orange-01, $lightness: -10%);
+  }
+}
+
+.btnLogout {
+  background-color: transparent;
+  color: $gray-02;
+  border: 2px solid $gray-02;
+
+  &:hover {
+    background-color: $gray-02;
+    color: $white;
+  }
+}

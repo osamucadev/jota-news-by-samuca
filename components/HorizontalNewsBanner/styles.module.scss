@@ -1,0 +1,151 @@
+@use "../../styles/abstracts" as *;
+
+.hero {
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid #e0e0e0;
+
+  @include desktop {
+    margin-bottom: 48px;
+    padding-bottom: 48px;
+  }
+}
+
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.95;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    gap: 24px;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+
+  @include desktop {
+    width: 60%;
+    height: 400px;
+  }
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 6px 12px;
+  background-color: $orange-01;
+  color: $white;
+  font-size: 11px;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 4px;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+  @include desktop {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+
+  @include desktop {
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+.category {
+  font-size: 12px;
+  color: $orange-01;
+  text-transform: uppercase;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.5px;
+
+  @include desktop {
+    font-size: 13px;
+  }
+}
+
+.title {
+  font-size: 24px;
+  font-weight: $font-weight-bold;
+  color: $gray-02;
+  margin: 0;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+
+  .heroContainer:hover & {
+    color: $orange-01;
+  }
+
+  @include desktop {
+    font-size: 36px;
+  }
+}
+
+.timestamp {
+  font-size: 13px;
+  color: $gray-01;
+
+  @include desktop {
+    font-size: 14px;
+  }
+}
+
+.favoriteButton {
+  margin-top: 8px;
+  padding: 8px 16px;
+  background-color: $white;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 13px;
+  color: $gray-02;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+
+  &:hover {
+    background-color: #f8f8f8;
+    border-color: $gray-01;
+  }
+
+  &.favorited {
+    background-color: rgba($orange-01, 0.1);
+    border-color: $orange-01;
+    color: $orange-01;
+
+    &:hover {
+      background-color: rgba($orange-01, 0.2);
+    }
+  }
+
+  @include desktop {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
