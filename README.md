@@ -1,6 +1,5 @@
-# 📘 **JOTA News – Portal de Notícias**
 
-🌐 **Demo online:** https://jota-news-by-samuca.vercel.app/
+🌐 **Demo online:** https://jota-news-by-samuca-git-v2-samuel-caetites-projects.vercel.app/
 
 Um portal de notícias desenvolvido com **Next.js (Pages Router)**, **React**, **TypeScript** e **SCSS Modules**, simulando um ambiente real de produto com:
 
