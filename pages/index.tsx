@@ -2,7 +2,9 @@ import Head from "next/head";
 import NewsList from "@/components/NewsList";
 import { ArrayOfNews } from "@/types/news";
 import HorizontalNewsBanner from "@/components/HorizontalNewsBanner";
+import LoadMoreButton from "@/components/LoadMoreButton";
 import { GetStaticProps } from "next";
+import usePagination from "@/hooks/usePagination";
 import styles from "./styles.module.scss";
 
 interface HomeProps {
@@ -11,6 +13,18 @@ interface HomeProps {
 }
 
 export default function Home({ news, error }: HomeProps) {
+  const {
+    data: allNews,
+    loadingMore,
+    hasMore,
+    hasError: paginationError,
+    loadMore,
+  } = usePagination({
+    initialData: news,
+    apiUrl: `${process.env.NEXT_PUBLIC_API_NEWS_URL}/news`,
+    itemsPerPage: 10,
+  });
+
   return (
     <div className={styles.mainContainer}>
       <div className={styles.mainContent}>
@@ -25,18 +39,24 @@ export default function Home({ news, error }: HomeProps) {
           <h1>JOTA – Fonte de confiança para você</h1>
 
           {error ? (
-            // TODO: substituir por página de erro
             <p>
               Ocorreu um erro ao carregar as notícias. Tente novamente mais
               tarde.
             </p>
-          ) : news && news.length > 0 ? (
+          ) : allNews && allNews.length > 0 ? (
             <>
-              <HorizontalNewsBanner news={news[0]} />
-              <NewsList newsList={news.slice(1)} />
+              <HorizontalNewsBanner news={allNews[0]} />
+              <NewsList newsList={allNews.slice(1)} />
+
+              {hasMore && (
+                <LoadMoreButton
+                  onClick={loadMore}
+                  loading={loadingMore}
+                  hasError={paginationError}
+                />
+              )}
             </>
           ) : (
-            // TODO: substituir por componente de falta de notícias
             <p>Nenhuma notícia disponível no momento.</p>
           )}
         </main>
@@ -48,7 +68,7 @@ export default function Home({ news, error }: HomeProps) {
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_NEWS_URL}/news`
+      `${process.env.NEXT_PUBLIC_API_NEWS_URL}/news?page=1&limit=10`
     );
 
     if (!response.ok) {

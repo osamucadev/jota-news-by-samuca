@@ -1,0 +1,55 @@
+@use "../../styles/abstracts" as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.errorMessage {
+  font-size: 14px;
+  color: #cc0000;
+  text-align: center;
+  margin: 0;
+}
+
+.button {
+  padding: 12px 32px;
+  background-color: $orange-01;
+  color: $white;
+  border: 2px solid $orange-01;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background-color: darken($orange-01, 10%);
+    border-color: darken($orange-01, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba($orange-01, 0.3);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &.loading {
+    opacity: 0.6;
+    cursor: wait;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  @include desktop {
+    padding: 14px 40px;
+    font-size: 15px;
+  }
+}

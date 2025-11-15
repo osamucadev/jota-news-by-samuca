@@ -98,7 +98,7 @@ const NewsCard = (props: NewsCardComponentProps) => {
           </div>
 
           <div className={styles.content}>
-            <p className={styles.category}>{newsData.category}</p>
+            <span className={styles.category}>{newsData.category}</span>
             <h2 className={styles.title}>{newsData.title}</h2>
             {newsData.createdAt && (
               <small className={styles.timestamp}>
