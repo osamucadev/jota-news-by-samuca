@@ -1,9 +1,13 @@
 # 📘 **JOTA News – Portal de Notícias**
 
-🌐 **Demo online:** https://jota-news-by-samuca.vercel.app/
+🌐 **Demo online (v1):** https://jota-news-by-samuca.vercel.app/  
+🚀 **Demo online (v2 - Nova versão):** https://jota-news-by-samuca-git-v2-samuel-caetites-projects.vercel.app/
+
+> 💡 **Nota:** A branch `v2` contém melhorias significativas de UX/UI e novas funcionalidades. [Veja a v2 aqui](https://github.com/osamucadev/jota-news-by-samuca/tree/v2)
 
 Um portal de notícias desenvolvido com **Next.js (Pages Router)**, **React**, **TypeScript** e **SCSS Modules**, simulando um ambiente real de produto com:
 
+### **Funcionalidades v1:**
 - Listagem de notícias  
 - Página de detalhes  
 - Persistência de favoritos  
@@ -11,7 +15,14 @@ Um portal de notícias desenvolvido com **Next.js (Pages Router)**, **React**, *
 - Modal de login centralizado  
 - Skeleton loading  
 - Layout responsivo  
-- SSR para melhorar SEO  
+- SSR para melhorar SEO
+
+### **Novidades na v2:**
+- ✨ Paginação com "Ver mais notícias"
+- ✨ Página "Todas as Notícias" (`/noticia`)
+- ✨ Seção "Você pode se interessar também"
+- ✨ Página 404 personalizada
+- ✨ Cards de notícias otimizados e responsivos
 
 Este projeto foi desenvolvido como desafio técnico e implementado seguindo boas práticas modernas de frontend.
 
