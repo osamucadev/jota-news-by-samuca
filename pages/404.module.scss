@@ -1,0 +1,122 @@
+@use "../styles/abstracts" as *;
+@use "sass:color";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 48px 16px;
+
+  @include desktop {
+    min-height: 70vh;
+    padding: 64px 24px;
+  }
+}
+
+.content {
+  text-align: center;
+  max-width: 500px;
+}
+
+.errorCode {
+  font-size: 96px;
+  font-weight: $font-weight-bold;
+  color: $orange-01;
+  line-height: 1;
+  margin-bottom: 16px;
+
+  @include desktop {
+    font-size: 128px;
+    margin-bottom: 24px;
+  }
+}
+
+.title {
+  font-size: 28px;
+  font-weight: $font-weight-bold;
+  color: $gray-02;
+  margin: 0 0 16px 0;
+
+  @include desktop {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+}
+
+.description {
+  font-size: 15px;
+  color: $gray-01;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+
+  @include desktop {
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+
+  @include desktop {
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+
+.primaryButton {
+  padding: 12px 32px;
+  background-color: $orange-01;
+  color: $white;
+  border: 2px solid $orange-01;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+
+  &:hover {
+    background-color: color.adjust($orange-01, $lightness: -10%);
+    border-color: color.adjust($orange-01, $lightness: -10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba($orange-01, 0.3);
+  }
+
+  @include desktop {
+    padding: 14px 40px;
+    font-size: 15px;
+  }
+}
+
+.secondaryButton {
+  padding: 12px 32px;
+  background-color: transparent;
+  color: $gray-02;
+  border: 2px solid $gray-02;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+
+  &:hover {
+    background-color: $gray-02;
+    color: $white;
+  }
+
+  @include desktop {
+    padding: 14px 40px;
+    font-size: 15px;
+  }
+}

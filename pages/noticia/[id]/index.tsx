@@ -59,6 +59,27 @@ const NewsDetail = ({ news, relatedNews, error }: NewsDetailProps) => {
   );
 };
 
+/**
+ * Estratégia: Server-Side Rendering (SSR)
+ *
+ * Por que SSR em vez de ISR (getStaticProps)?
+ *
+ * - SSR (getServerSideProps):
+ *   - Sempre busca dados frescos do servidor a cada requisição
+ *   - Ideal para conteúdo dinâmico que muda frequentemente
+ *   - Garante que o usuário sempre vê a versão mais atualizada
+ *   - Melhor para páginas de notícias que são atualizadas constantemente
+ *   - Ligeiramente mais lento, pois faz fetch a cada request
+ *
+ * - ISR (getStaticProps + revalidate):
+ *   - Mais rápido (serve HTML estático)
+ *   - Reduz carga no servidor
+ *   - Pode servir conteúdo desatualizado até próximo revalidate
+ *   - Não ideal para conteúdo que precisa estar sempre atualizado
+ *
+ * Decisão: Escolhi SSR porque em um portal de notícias é importante que o usuário sempre veja o conteúdo mais recente, especialmente em notícias de última hora.
+ */
+
 export const getServerSideProps: GetServerSideProps<NewsDetailProps> = async (
   context
 ) => {
