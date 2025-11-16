@@ -185,9 +185,7 @@ npm start
 
 ## 🔮 **Melhorias Futuras (Roadmap)**
 
-- Paginação real na lista  
 - Scroll infinito  
-- Página 404 personalizada  
 - SEO avançado
 - Testes automatizados
 
